@@ -1,0 +1,159 @@
+.cpicker {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+/* Pick button */
+.cpicker__pick-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 0;
+  background: var(--accent, #007aff);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.cpicker__pick-btn:hover {
+  opacity: 0.85;
+}
+.cpicker__pick-btn:active {
+  opacity: 0.7;
+}
+.cpicker__pick-icon {
+  font-size: 16px;
+}
+
+/* Current color */
+.cpicker__current {
+  display: flex;
+  gap: 10px;
+}
+
+.cpicker__swatch-large {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border, rgba(0, 0, 0, 0.08));
+  flex-shrink: 0;
+}
+
+.cpicker__values {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.cpicker__value-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.cpicker__value-row:hover {
+  background: var(--glass-border, rgba(0, 0, 0, 0.05));
+}
+
+.cpicker__label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-tertiary, rgba(0, 0, 0, 0.3));
+  width: 28px;
+  flex-shrink: 0;
+}
+
+.cpicker__val {
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--text-primary, #1d1d1f);
+  position: relative;
+}
+
+.cpicker__copied {
+  position: absolute;
+  right: -50px;
+  font-family: system-ui;
+  font-size: 10px;
+  color: var(--accent, #007aff);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* History */
+.cpicker__history {
+  margin-top: auto;
+}
+
+.cpicker__history-label {
+  font-size: 11px;
+  color: var(--text-tertiary, rgba(0, 0, 0, 0.3));
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.cpicker__history-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cpicker__swatch-wrap {
+  position: relative;
+}
+
+.cpicker__swatch-del {
+  display: none;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 10px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.cpicker__swatch-wrap:hover .cpicker__swatch-del {
+  display: flex;
+}
+
+.cpicker__swatch-small {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid var(--glass-border, rgba(0, 0, 0, 0.08));
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.cpicker__swatch-small:hover {
+  transform: scale(1.15);
+}
+
+/* Empty state */
+.cpicker__empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary, rgba(0, 0, 0, 0.3));
+  font-size: 13px;
+}

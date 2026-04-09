@@ -1,0 +1,54 @@
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  padding: 0 8px 0 14px;
+  background: var(--title-bar-bg);
+  border-bottom: 1px solid var(--divider);
+  flex-shrink: 0;
+}
+
+.title-bar--draggable {
+  -webkit-app-region: drag;
+}
+
+.title-bar__title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.title-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  -webkit-app-region: no-drag;
+}
+
+.title-bar__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.title-bar__btn:hover {
+  background: var(--btn-hover);
+  color: var(--text-primary);
+}
+
+.title-bar__btn--close:hover {
+  background: var(--danger);
+  color: white;
+}

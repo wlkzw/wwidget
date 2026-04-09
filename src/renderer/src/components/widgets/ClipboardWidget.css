@@ -1,0 +1,159 @@
+.cb-widget {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 6px;
+}
+
+.cb-toolbar {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.cb-search {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  font-size: 12px;
+  outline: none;
+}
+
+.cb-search::placeholder {
+  color: var(--text-tertiary);
+}
+
+.cb-search:focus {
+  border-color: var(--accent);
+}
+
+.cb-btn-clear {
+  padding: 4px 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  background: none;
+  color: var(--text-secondary);
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cb-btn-clear:hover {
+  background: var(--glass-bg);
+  color: var(--text-primary);
+}
+
+.cb-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cb-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+
+.cb-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: background 0.15s;
+}
+
+.cb-entry:hover {
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+}
+
+.cb-entry--pinned {
+  border-color: var(--accent);
+  background: var(--glass-bg);
+}
+
+.cb-entry-content {
+  cursor: pointer;
+}
+
+.cb-entry-text {
+  margin: 0;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow: hidden;
+  max-height: 3.6em;
+}
+
+.cb-entry-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cb-entry-source {
+  font-size: 10px;
+  color: var(--accent);
+  font-weight: 500;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cb-entry-time {
+  font-size: 10px;
+  color: var(--text-tertiary);
+}
+
+.cb-entry-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.cb-entry:hover .cb-entry-actions {
+  opacity: 1;
+}
+
+.cb-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.cb-btn:hover {
+  background: var(--glass-border);
+  color: var(--text-primary);
+}
+
+.cb-btn-pin--active {
+  color: var(--accent);
+}
+
+.cb-btn-delete:hover {
+  color: #ff453a;
+}

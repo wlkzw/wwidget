@@ -1,0 +1,74 @@
+.sysmon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  height: 100%;
+}
+
+.sysmon-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.sysmon-rings {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.sysmon-ring-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sysmon-ring-progress {
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.sysmon-ring-value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sysmon-ring-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sysmon-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.sysmon-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.sysmon-detail-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.sysmon-detail-value {
+  font-size: 11px;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}

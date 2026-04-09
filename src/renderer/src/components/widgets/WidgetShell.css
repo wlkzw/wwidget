@@ -1,0 +1,12 @@
+.widget-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.widget-shell__content {
+  flex: 1;
+  overflow: auto;
+  padding: 12px;
+}
