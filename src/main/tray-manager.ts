@@ -1,4 +1,5 @@
 import { Tray, Menu, app, nativeImage, BrowserWindow, ipcMain } from "electron";
+import { autoUpdater } from "electron-updater";
 import type { MenuItemConstructorOptions } from "electron";
 import { join } from "path";
 import { Store } from "./store";
@@ -22,7 +23,7 @@ export class TrayManager {
   }
 
   create(): void {
-    const iconPath = join(__dirname, "../../resources/icon.png");
+    const iconPath = join(__dirname, "../../resources/icon.ico");
     let icon: Electron.NativeImage;
     try {
       icon = nativeImage.createFromPath(iconPath);
@@ -163,6 +164,13 @@ export class TrayManager {
         },
       },
       { type: "separator" },
+      {
+        label: "检查更新",
+        enabled: app.isPackaged,
+        click: (): void => {
+          autoUpdater.checkForUpdates().catch(() => {});
+        },
+      },
       {
         label: "Quit",
         click: (): void => {

@@ -2,6 +2,10 @@ appId: com.wwidget.app
 productName: WWidget
 directories:
   buildResources: resources
+publish:
+  provider: github
+  owner: wlkzw
+  repo: wwidget
 files:
   - "!**/.vscode/*"
   - "!src/*"

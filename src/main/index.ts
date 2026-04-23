@@ -7,6 +7,7 @@ import { registerIpcHandlers } from "./ipc-handlers";
 import { LauncherManager } from "./launcher-manager";
 import { ColorPickerService } from "./color-picker";
 import type { ClipboardMonitor } from "./clipboard-monitor";
+import { initAutoUpdater } from "./auto-updater";
 
 let store: Store;
 let windowManager: WindowManager;
@@ -46,6 +47,7 @@ app.whenReady().then(() => {
   app.setAppUserModelId("com.wwidget.app");
 
   bootstrap();
+  initAutoUpdater();
 
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
