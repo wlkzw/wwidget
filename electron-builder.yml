@@ -15,7 +15,6 @@ files:
 win:
   target:
     - nsis
-  icon: resources/icon.ico
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
