@@ -2,6 +2,9 @@ appId: com.wwidget.app
 productName: WWidget
 directories:
   buildResources: resources
+extraResources:
+  - from: resources/icon.ico
+    to: icon.ico
 publish:
   provider: github
   owner: wlkzw

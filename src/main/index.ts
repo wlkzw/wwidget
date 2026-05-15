@@ -49,6 +49,10 @@ app.whenReady().then(() => {
   bootstrap();
   initAutoUpdater();
 
+  // Sync login item setting with stored preference
+  const settings = store.getSettings();
+  app.setLoginItemSettings({ openAtLogin: settings.launchOnStartup });
+
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       bootstrap();

@@ -1,4 +1,4 @@
-import { Tray, Menu, app, nativeImage, BrowserWindow, ipcMain } from "electron";
+import { Tray, Menu, app, nativeImage, BrowserWindow, ipcMain, dialog } from "electron";
 import { autoUpdater } from "electron-updater";
 import type { MenuItemConstructorOptions } from "electron";
 import { join } from "path";
@@ -23,7 +23,9 @@ export class TrayManager {
   }
 
   create(): void {
-    const iconPath = join(__dirname, "../../resources/icon.ico");
+    const iconPath = app.isPackaged
+      ? join(process.resourcesPath, "icon.ico")
+      : join(__dirname, "../../resources/icon.ico");
     let icon: Electron.NativeImage;
     try {
       icon = nativeImage.createFromPath(iconPath);
@@ -149,6 +151,15 @@ export class TrayManager {
         },
       },
       {
+        label: "开机自启",
+        type: "checkbox",
+        checked: state.settings.launchOnStartup,
+        click: (item): void => {
+          this.store.updateSettings({ launchOnStartup: item.checked });
+          app.setLoginItemSettings({ openAtLogin: item.checked });
+        },
+      },
+      {
         label: "Show Toolbar",
         type: "checkbox",
         checked: state.settings.toolbarVisible,
@@ -168,7 +179,26 @@ export class TrayManager {
         label: "检查更新",
         enabled: app.isPackaged,
         click: (): void => {
-          autoUpdater.checkForUpdates().catch(() => {});
+          autoUpdater
+            .checkForUpdates()
+            .then((result) => {
+              if (!result || result.updateInfo.version === app.getVersion()) {
+                dialog.showMessageBox({
+                  type: "info",
+                  title: "检查更新",
+                  message: `已是最新版本 v${app.getVersion()}`,
+                  buttons: ["确定"],
+                });
+              }
+            })
+            .catch(() => {
+              dialog.showMessageBox({
+                type: "error",
+                title: "检查更新",
+                message: "检查更新失败，请检查网络连接。",
+                buttons: ["确定"],
+              });
+            });
         },
       },
       {
